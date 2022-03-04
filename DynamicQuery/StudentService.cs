@@ -26,11 +26,11 @@ namespace DynamicQuery
                 }
                 if (queryInfo.StartTime.HasValue)
                 {
-                    students = students.Where(p => p.Birthday > queryInfo.StartTime);
+                    students = students.Where(p => p.Birthday >= queryInfo.StartTime);
                 }
                 if (queryInfo.EndTime.HasValue)
                 {
-                    students = students.Where(p => p.Birthday > queryInfo.StartTime);
+                    students = students.Where(p => p.Birthday <= queryInfo.EndTime);
                 }
                 return students.Skip(offset).Take(limit).ToList();
             }
